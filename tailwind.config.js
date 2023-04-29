@@ -1,3 +1,5 @@
+const { fontFamily } = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -21,8 +23,13 @@ module.exports = {
         "hero-primary": "#496341",
         "hero-secondary": "#73826D",
         white: "#ECEEF7",
+        gold: "#FFAF37"
       },
     },
+    fontFamily: {
+      roboto: ['var(--font-roboto)'],
+      sansation: ['var(--font-sansation)'],
+    }
   },
   plugins: [],
 };

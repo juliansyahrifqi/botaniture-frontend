@@ -1,4 +1,3 @@
-import React from "react";
 import { BiMenuAltLeft } from "react-icons/bi";
 
 export default function ButtonSidebar({ handleSidebarOpen }: any) {
