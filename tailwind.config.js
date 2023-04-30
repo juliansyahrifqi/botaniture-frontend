@@ -23,7 +23,8 @@ module.exports = {
         "hero-primary": "#496341",
         "hero-secondary": "#73826D",
         white: "#ECEEF7",
-        gold: "#FFAF37"
+        gold: "#FFAF37",
+        footer: "#51684B",
       },
     },
     fontFamily: {

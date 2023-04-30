@@ -6,7 +6,7 @@ import FooterItem from "./FooterItem";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary w-full">
+    <footer className="bg-footer w-full">
       <div className="grid grid-cols-4 justify-center p-12">
         <FooterItem title="Information">
           <Information />
