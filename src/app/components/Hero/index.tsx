@@ -12,14 +12,16 @@ const data = [
     productName: 'Zamiculcas Zamiifolia ZZ Plant / Tanaman Dolar',
     productPrice: 400000,
     productDiscount: 10,
-    productImage: '/tanaman-1.png'
+    productImage: '/tanaman-1.png',
+    productSlug: 'zamiculcas'
   },
   {
     id: 2,
     productName: 'Monstera  Deliciosa / Tamaman Janda Bolong',
     productPrice: 250000,
     productDiscount: 12,
-    productImage: '/tanaman-2.png'
+    productImage: '/tanaman-2.png',
+    productSlug: 'montsera'
   }
 ]
 

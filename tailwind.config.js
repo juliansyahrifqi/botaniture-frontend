@@ -16,7 +16,7 @@ module.exports = {
         primary: "#6B8765",
         "primary-20": "rgba(107, 135, 101, 20%)",
         sidebar: "#EDF0DA",
-        hero: "A0B29B",
+        hero: "#A0B29B",
         "hero-40": "rgba(160, 178, 155, 40%)",
         secondary: "#9A9A9A",
         black: "#393939",

@@ -1,3 +1,4 @@
+import { ProductProps } from '@/app/types/productType';
 import Image from 'next/image'
 import Link from 'next/link'
 import { BsArrowRight} from "react-icons/bs";
@@ -6,12 +7,7 @@ import { formatRupiah } from '../../../../utils/formatRupiah';
 interface CardDiscountProps {
   background: 'primary' | 'secondary';
   url: string;
-  data: {
-    productName: string;
-    productPrice: number;
-    productDiscount: number;
-    productImage: string;
-  }
+  data: ProductProps;
 }
 
 export default function CardDiscount(props: CardDiscountProps) {
