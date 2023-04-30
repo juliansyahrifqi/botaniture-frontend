@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 
 import Hero from "./components/Hero";
 import Service from "./components/Service";
+import PageSection from "./components/PageSection";
 
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
 
@@ -12,6 +13,10 @@ export default function Home() {
       <Hero />
 
       <Service />
+
+      <PageSection title="New Arrival" link="/belanja">
+        
+      </PageSection>
     </main>
   );
 }

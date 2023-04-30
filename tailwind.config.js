@@ -30,6 +30,7 @@ module.exports = {
     fontFamily: {
       roboto: ['var(--font-roboto)'],
       sansation: ['var(--font-sansation)'],
+      inter: ['var(--font-inter)'],
     }
   },
   plugins: [],

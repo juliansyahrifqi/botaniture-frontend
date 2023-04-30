@@ -1,7 +1,7 @@
 import "./globals.css";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import { Roboto } from "next/font/google";
+import { Inter, Roboto } from "next/font/google";
 import localFont from 'next/font/local'
 
 export const metadata = {
@@ -10,6 +10,7 @@ export const metadata = {
     "Botaniture is brand that sells botanical item such as plant, seed, vessel, fertilizers and etc",
 };
 
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter'});
 const roboto = Roboto({ subsets: ["latin"], variable: '--font-roboto',  weight: ['300', '400', '500', '700']});
 const sansation = localFont({ 
   src: [
@@ -39,7 +40,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} ${sansation.variable} h-screen flex flex-col`}>
+      <body className={`${roboto.variable} ${sansation.variable} ${inter.variable} h-screen flex flex-col`}>
         <Navbar />
         {children}
         <Footer />
