@@ -6,23 +6,28 @@ import FooterItem from "./FooterItem";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary w-full grid grid-cols-4 justify-center p-12">
+    <footer className="bg-primary w-full">
+      <div className="grid grid-cols-4 justify-center p-12">
+        <FooterItem title="Information">
+          <Information />
+        </FooterItem>
 
-      <FooterItem title="Information">
-        <Information />
-      </FooterItem>
+        <FooterItem title="Hubungi Kami">
+          <CallUs />
+        </FooterItem>
 
-      <FooterItem title="Hubungi Kami">
-        <CallUs />
-      </FooterItem>
+        <FooterItem title="Metode Pembayaran">
+          <PaymentMethod />
+        </FooterItem>
 
-      <FooterItem title="Metode Pembayaran">
-        <PaymentMethod />
-      </FooterItem>
+        <FooterItem>
+          <FooterLogo />
+        </FooterItem>
+      </div>
 
-      <FooterItem>
-        <FooterLogo />
-      </FooterItem>
+      <div className="bg-[#3E5338] py-1">
+        <p className="text-center text-white text-sm font-roboto">Copyright 2023 Botaniture. All Rights Reserved </p>
+      </div>
     </footer>
   )
 }
