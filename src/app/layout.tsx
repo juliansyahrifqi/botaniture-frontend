@@ -3,7 +3,6 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import { Roboto } from "next/font/google";
 import localFont from 'next/font/local'
-import path from "path";
 
 export const metadata = {
   title: "Botaniture - Keep Growing Keep Planting",
