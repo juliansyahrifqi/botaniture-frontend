@@ -1,10 +1,10 @@
 import ContactItem from "../ContactItem"
 
 const contactList = [
-  { link: 'https://www.instagram.com', value: '@botaniture', image: '/image.png'},
-  { link: 'https://www.twitter.com', value: '@botaniture', image: '/image.png'},
-  { link: 'www.email.com', value: '@botaniture@gmail.com', image: '/image.png'},
-  { link: 'www.whatsapp.com', value: '(+62) 8123456789', image: '/image.png'}
+  { link: 'https://www.instagram.com', value: '@botaniture', image: '/whatsapp.png'},
+  { link: 'https://www.twitter.com', value: '@botaniture', image: '/whatsapp.png'},
+  { link: 'www.email.com', value: '@botaniture@gmail.com', image: '/whatsapp.png'},
+  { link: 'www.whatsapp.com', value: '(+62) 8123456789', image: '/whatsapp.png'}
 ]
 
 export default function CallUs() {
