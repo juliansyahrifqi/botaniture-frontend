@@ -7,6 +7,7 @@ import PageSection from "./components/PageSection";
 import CardProduct from "./components/CardProduct";
 import Quote from "./components/Quote";
 import CardCategory from "./components/CardCategory";
+import CardBlog from "./components/CardBlog";
 
 const products = [
   {
@@ -50,6 +51,34 @@ const categories = [
   { id: 4, name: 'Seeds & Fertilizers', slug: 'seeds-fertilizers', image: '/bg-category.jpg'},
 ]
 
+const blogs = [
+  { 
+    id: 1,
+    title: 'Cara Merawat Tanaman Rumah Agar Tidak Layu',
+    description: 'Tulisan kali ini adalah sebuah tips dari Botaniture tentang cara merawat tanaman rumah agar tidak layu',
+    date: new Date(),
+    slug: 'tanaman-rumah',
+    image: '/bg-category.jpg'
+  },
+  { 
+    id: 2,
+    title: 'Rekomendasi Tanaman Hias Untuk Ruang/Meja Kerja',
+    description: 'Ruang/Meja kerja adalah tempat yang banyak digunakan sehari-hari oleh kebanyakan orang, agar..',
+    date: new Date(),
+    slug: 'tanaman-hias',
+    image: '/bg-category.jpg'
+  },
+  { 
+    id: 3,
+    title: 'Tips Merawat Rumput Jepang Agar Tidak Kering',
+    description: 'Memberikan pupuk organik merupakan salah satu cara menyuburkan rumput Jepang. Bukan tanpa ....',
+    date: new Date(),
+    slug: 'tanaman-rumput',
+    image: '/bg-category.jpg'
+  },
+  
+]
+
 export default function Home() {
   return (
     <main className={`px-4 md:px-12 py-10`}>
@@ -82,6 +111,21 @@ export default function Home() {
               image={category.image} 
               name={category.name} 
               slug={category.slug}
+            />
+          ))}
+        </div>
+      </PageSection>
+
+      <PageSection title="Blog" link="/blog">
+        <div className="grid grid-cols-2 xl:grid-cols-3 gap-4">
+          {blogs.map((blog) => (
+            <CardBlog 
+              key={blog.id}
+              title={blog.title}
+              description={blog.description}
+              date={blog.date}
+              slug={blog.slug}
+              image={blog.image}
             />
           ))}
         </div>
