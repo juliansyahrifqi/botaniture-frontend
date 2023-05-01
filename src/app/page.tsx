@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import Service from "./components/Service";
 import PageSection from "./components/PageSection";
 import CardProduct from "./components/CardProduct";
+import Quote from "./components/Quote";
 
 const products = [
   {
@@ -62,6 +63,8 @@ export default function Home() {
           ))}
         </div>
       </PageSection>
+
+      <Quote />
     </main>
   );
 }
