@@ -3,7 +3,7 @@ import Flower from "../../../../public/quote-flower.png"
 
 export default function Quote() {
   return (
-    <section className="relative flex items-center justify-around bg-hero-secondary w-full h-52 my-16 rounded-xl bg-[url('/bg-quote.png')] bg-contain bg-no-repeat bg-left">
+    <section className="relative flex items-center justify-around bg-hero-secondary w-full h-52 my-24 rounded-xl bg-[url('/bg-quote.png')] bg-contain bg-no-repeat bg-left">
       <Image src={Flower} alt="Flower" height={280} width={280} />
 
       <div className='flex flex-col'>

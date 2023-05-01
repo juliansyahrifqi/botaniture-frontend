@@ -6,6 +6,7 @@ import Service from "./components/Service";
 import PageSection from "./components/PageSection";
 import CardProduct from "./components/CardProduct";
 import Quote from "./components/Quote";
+import CardCategory from "./components/CardCategory";
 
 const products = [
   {
@@ -42,6 +43,13 @@ const products = [
   },
 ]
 
+const categories = [
+  { id: 1, name: 'House Plants', slug: 'house-plant', image: '/bg-category.jpg'},
+  { id: 2, name: 'Pots & Vessels', slug: 'pots-vessels', image: '/bg-category.jpg'},
+  { id: 3, name: 'Home & Garden', slug: 'home-garden', image: '/bg-category.jpg'},
+  { id: 4, name: 'Seeds & Fertilizers', slug: 'seeds-fertilizers', image: '/bg-category.jpg'},
+]
+
 export default function Home() {
   return (
     <main className={`px-4 md:px-12 py-10`}>
@@ -65,6 +73,19 @@ export default function Home() {
       </PageSection>
 
       <Quote />
+
+      <PageSection title="Category" link="/category">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {categories.map((category) => (
+            <CardCategory 
+              key={category.id} 
+              image={category.image} 
+              name={category.name} 
+              slug={category.slug}
+            />
+          ))}
+        </div>
+      </PageSection>
     </main>
   );
 }
