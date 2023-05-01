@@ -13,7 +13,7 @@ export default function CardProduct(props: ProductProps) {
       <div className="absolute px-3 py-1 bg-hero font-roboto font-bold text-white top-3 rounded-lg text-xs">New</div>
 
       <div className="product-image bg-[url('/bg-product.png')] bg-no-repeat bg-center bg-[length:150px_150px]">
-        <Image src={productImage} alt={productName} width={120} height={120} className="w-[120px] h-[180px] object-cover mx-auto"/>
+        <Image src={productImage} alt={productName} width={120} height={120} className="w-[120px] h-[180px] object-contain mx-auto"/>
       </div>
 
       <div className="flex items-center gap-3">

@@ -15,7 +15,7 @@ const products = [
     productName: 'Monstera Deliciosa / Tanaman Janda Bolong',
     productPrice: 125000,
     productDiscount: 0,
-    productImage: '/tanaman-1.png',
+    productImage: '/tanaman-3.png',
     productSlug: 'montsera'
   },
   {
@@ -23,32 +23,32 @@ const products = [
     productName: 'Zamiculcas Zamiifolia / ZZ Plant / Tanaman Dolar',
     productPrice: 400000,
     productDiscount: 30,
-    productImage: '/tanaman-2.png',
+    productImage: '/tanaman-4.png',
     productSlug: 'zamiculcas'
   },
   {
-    id: 1,
+    id: 3,
     productName: 'Pilea Peperomioides / Chinese Money Plant / Tanaman Pilea',
     productPrice: 195000,
     productDiscount: 0,
-    productImage: '/tanaman-1.png',
+    productImage: '/tanaman-5.png',
     productSlug: 'pilea'
   },
   {
-    id: 1,
+    id: 4,
     productName: 'Cactus/ Tanaman Kaktus',
     productPrice: 87000,
     productDiscount: 0,
-    productImage: '/tanaman-2.png',
+    productImage: '/tanaman-6.png',
     productSlug: 'cactus'
   },
 ]
 
 const categories = [
-  { id: 1, name: 'House Plants', slug: 'house-plant', image: '/bg-category.jpg'},
-  { id: 2, name: 'Pots & Vessels', slug: 'pots-vessels', image: '/bg-category.jpg'},
-  { id: 3, name: 'Home & Garden', slug: 'home-garden', image: '/bg-category.jpg'},
-  { id: 4, name: 'Seeds & Fertilizers', slug: 'seeds-fertilizers', image: '/bg-category.jpg'},
+  { id: 1, name: 'House Plants', slug: 'house-plant', image: '/bg-category-1.jpg'},
+  { id: 2, name: 'Pots & Vessels', slug: 'pots-vessels', image: '/bg-category-2.jpg'},
+  { id: 3, name: 'Home & Garden', slug: 'home-garden', image: '/bg-category-3.jpg'},
+  { id: 4, name: 'Seeds & Fertilizers', slug: 'seeds-fertilizers', image: '/bg-category-4.jpg'},
 ]
 
 const blogs = [
@@ -58,7 +58,7 @@ const blogs = [
     description: 'Tulisan kali ini adalah sebuah tips dari Botaniture tentang cara merawat tanaman rumah agar tidak layu',
     date: new Date(),
     slug: 'tanaman-rumah',
-    image: '/bg-category.jpg'
+    image: '/bg-blog-1.jpg'
   },
   { 
     id: 2,
@@ -66,7 +66,7 @@ const blogs = [
     description: 'Ruang/Meja kerja adalah tempat yang banyak digunakan sehari-hari oleh kebanyakan orang, agar..',
     date: new Date(),
     slug: 'tanaman-hias',
-    image: '/bg-category.jpg'
+    image: '/bg-blog-2.jpg'
   },
   { 
     id: 3,
@@ -74,7 +74,7 @@ const blogs = [
     description: 'Memberikan pupuk organik merupakan salah satu cara menyuburkan rumput Jepang. Bukan tanpa ....',
     date: new Date(),
     slug: 'tanaman-rumput',
-    image: '/bg-category.jpg'
+    image: '/bg-blog-3.jpg'
   },
   
 ]

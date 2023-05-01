@@ -16,7 +16,7 @@ export default function CardBlog(props: CardBlogProps) {
     <div className="flex flex-col gap-3 bg-[#F8F8F8] shadow-xl rounded-3xl">
       <div className="relative image">
         <div>
-          <Image src={image} alt={title} width={500} height={500} className="w-full rounded-tr-3xl rounded-tl-3xl" />
+          <Image src={image} alt={title} width={500} height={500} className="w-full rounded-tr-3xl rounded-tl-3xl max-h-60 object-cover" />
         </div>
         
         <svg width="435" height="78" viewBox="0 0 435 78" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute bottom-0 w-full" preserveAspectRatio="xMidYMid slice">
