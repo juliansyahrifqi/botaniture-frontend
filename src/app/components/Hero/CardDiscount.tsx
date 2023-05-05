@@ -1,4 +1,4 @@
-import { ProductProps } from '@/app/types/productType';
+import { ProductType } from '@/app/types/productType';
 import Image from 'next/image'
 import Link from 'next/link'
 import { BsArrowRight} from "react-icons/bs";
@@ -7,13 +7,13 @@ import { formatRupiah } from '../../../../utils/formatRupiah';
 interface CardDiscountProps {
   background: 'primary' | 'secondary';
   url: string;
-  data: ProductProps;
+  data: ProductType;
 }
 
 export default function CardDiscount(props: CardDiscountProps) {
   const { background, url, data} = props;
 
-  const discountValue = data.productPrice - (data.productPrice * (data.productDiscount / 100));
+  const discountValue = data.product_price - (data.product_price * (data.product_discount / 100));
 
   return (
     <div className={`relative card p-5 rounded-3xl grid grid-cols-3 items-center gap-4 ${background === 'primary' ? 'bg-primary bg-[url(/bg-right.png)]' : 'bg-hero-secondary bg-[url(/bg-right-2.png)]'} bg-no-repeat bg-contain bg-right`}>
@@ -24,7 +24,7 @@ export default function CardDiscount(props: CardDiscountProps) {
 
       <div className="flex flex-col justify-between col-span-2 gap-10">
         <div>
-          <p className="text-lg text-white font-bold font-sansation">{data.productName}</p>
+          <p className="text-lg text-white font-bold font-sansation">{data.product_name}</p>
         </div>
 
         <div>
@@ -32,12 +32,12 @@ export default function CardDiscount(props: CardDiscountProps) {
 
           <div className="flex items-center justify-between gap-2">
             <p className="text-gold text-3xl font-bold font-sansation">{formatRupiah(discountValue)}</p> 
-            <span className="text-xs text-white font-semibold font-roboto"><s>{formatRupiah(data.productPrice)}</s></span>
+            <span className="text-xs text-white font-semibold font-roboto"><s>{formatRupiah(data.product_price)}</s></span>
           </div>
         </div>
       </div>
 
-      <Image src={props.data.productImage} alt={props.data.productName} width={200} height={250} />
+      <Image src={props.data.product_image} alt={props.data.product_name} width={200} height={250} />
     </div>
   )
 }

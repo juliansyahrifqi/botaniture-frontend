@@ -1,6 +1,3 @@
-import { Inter } from "next/font/google";
-import styles from "./page.module.css";
-
 import Hero from "./components/Hero";
 import Service from "./components/Service";
 import PageSection from "./components/PageSection";
@@ -8,48 +5,9 @@ import CardProduct from "./components/CardProduct";
 import Quote from "./components/Quote";
 import CardCategory from "./components/CardCategory";
 import CardBlog from "./components/CardBlog";
-
-const products = [
-  {
-    id: 1,
-    productName: 'Monstera Deliciosa / Tanaman Janda Bolong',
-    productPrice: 125000,
-    productDiscount: 0,
-    productImage: '/tanaman-3.png',
-    productSlug: 'montsera'
-  },
-  {
-    id: 2,
-    productName: 'Zamiculcas Zamiifolia / ZZ Plant / Tanaman Dolar',
-    productPrice: 400000,
-    productDiscount: 30,
-    productImage: '/tanaman-4.png',
-    productSlug: 'zamiculcas'
-  },
-  {
-    id: 3,
-    productName: 'Pilea Peperomioides / Chinese Money Plant / Tanaman Pilea',
-    productPrice: 195000,
-    productDiscount: 0,
-    productImage: '/tanaman-5.png',
-    productSlug: 'pilea'
-  },
-  {
-    id: 4,
-    productName: 'Cactus/ Tanaman Kaktus',
-    productPrice: 87000,
-    productDiscount: 0,
-    productImage: '/tanaman-6.png',
-    productSlug: 'cactus'
-  },
-]
-
-const categories = [
-  { id: 1, name: 'House Plants', slug: 'house-plant', image: '/bg-category-1.jpg'},
-  { id: 2, name: 'Pots & Vessels', slug: 'pots-vessels', image: '/bg-category-2.jpg'},
-  { id: 3, name: 'Home & Garden', slug: 'home-garden', image: '/bg-category-3.jpg'},
-  { id: 4, name: 'Seeds & Fertilizers', slug: 'seeds-fertilizers', image: '/bg-category-4.jpg'},
-]
+import { Suspense } from "react";
+import { ProductCategoryType } from "./types/productCategoryType";
+import { ProductProps, ProductType } from "./types/productType";
 
 const blogs = [
   { 
@@ -76,44 +34,71 @@ const blogs = [
     slug: 'tanaman-rumput',
     image: '/bg-blog-3.jpg'
   },
-  
 ]
 
-export default function Home() {
+async function getServices() {
+  const res = await fetch(`${process.env.BACKEND_URL}/api/v1/services`);
+
+  return res.json();
+}
+
+async function getCategories() {
+  const res = await fetch(`${process.env.BACKEND_URL}/api/v1/product-category`);
+
+  return res.json();
+}
+
+async function getProducts() {
+  const res = await fetch(`${process.env.BACKEND_URL}/api/v1/product`);
+
+  return res.json();
+}
+
+export default async function Home() {
+  const serviceData = getServices();
+  const categoryData = getCategories();
+  const productData = getProducts();
+
+  const [services, categories, products] = await Promise.all([serviceData, categoryData, productData]);
+
   return (
     <main className={`px-4 md:px-12 py-10`}>
       <Hero />
 
-      <Service />
+      <Service data={services.data} />
 
       <PageSection title="New Arrival" link="/belanja">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {products.map((product) => (
-            <CardProduct 
-              key={product.id} 
-              productName={product.productName}
-              productPrice={product.productPrice} 
-              productDiscount={product.productDiscount} 
-              productImage={product.productImage}
-              productSlug={product.productSlug}
-            />
-          ))}
-        </div>
+        <Suspense fallback={<div>Loading...</div>}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {(products?.data || []).map((product: ProductType) => (
+              <CardProduct 
+                key={product.product_id} 
+                productName={product.product_name}
+                productPrice={product.product_price} 
+                productDiscount={product.product_discount} 
+                productImage={product.product_image}
+                productSlug={product.product_slug}
+              />
+            ))}
+          </div>
+        </Suspense>
       </PageSection>
 
       <Quote />
 
       <PageSection title="Category" link="/category">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {categories.map((category) => (
-            <CardCategory 
-              key={category.id} 
-              image={category.image} 
-              name={category.name} 
-              slug={category.slug}
-            />
-          ))}
-        </div>
+        <Suspense fallback={<div>Loading...</div>}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {(categories?.data || []).map((category: ProductCategoryType) => (
+                <CardCategory 
+                  key={category.procat_id} 
+                  image={category.procat_image} 
+                  name={category.procat_name} 
+                  slug={category.procat_slug}
+                />
+              ))}
+          </div>
+        </Suspense>
       </PageSection>
 
       <PageSection title="Blog" link="/blog">

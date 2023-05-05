@@ -1,27 +1,22 @@
-import Link from "next/link";
-import TanamanOne from "../../../../public/tanaman-1.png";
-import TanamanTwo from "../../../../public/tanaman-1.png";
-import { BsArrowRight } from 'react-icons/bs'
-import Image from "next/image";
 import CardDiscount from "./CardDiscount";
 import CardOffer from "./CardOffer";
 
 const data = [
   {
-    id: 1,
-    productName: 'Zamiculcas Zamiifolia ZZ Plant / Tanaman Dolar',
-    productPrice: 400000,
-    productDiscount: 10,
-    productImage: '/tanaman-1.png',
-    productSlug: 'zamiculcas'
+    product_id: 1,
+    product_name: 'Zamiculcas Zamiifolia ZZ Plant / Tanaman Dolar',
+    product_price: 400000,
+    product_discount: 10,
+    product_image: '/tanaman-1.png',
+    product_slug: 'zamiculcas'
   },
   {
-    id: 2,
-    productName: 'Monstera  Deliciosa / Tamaman Janda Bolong',
-    productPrice: 250000,
-    productDiscount: 12,
-    productImage: '/tanaman-2.png',
-    productSlug: 'montsera'
+    product_id: 2,
+    product_name: 'Monstera  Deliciosa / Tamaman Janda Bolong',
+    product_price: 250000,
+    product_discount: 12,
+    product_image: '/tanaman-2.png',
+    product_slug: 'montsera'
   }
 ]
 
