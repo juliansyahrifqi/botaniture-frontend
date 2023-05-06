@@ -37,7 +37,7 @@ const blogs = [
 ]
 
 async function getServices() {
-  const res = await fetch(`${process.env.BACKEND_URL}/api/v1/services`, {
+  const res = await fetch(`${process.env.BACKEND_URL}/services`, {
     next: {
       revalidate: 10,
     }
@@ -47,7 +47,7 @@ async function getServices() {
 }
 
 async function getCategories() {
-  const res = await fetch(`${process.env.BACKEND_URL}/api/v1/product-category`, {
+  const res = await fetch(`${process.env.BACKEND_URL}/product-category`, {
     next: {
       revalidate: 10,
     }
@@ -57,7 +57,7 @@ async function getCategories() {
 }
 
 async function getProducts() {
-  const res = await fetch(`${process.env.BACKEND_URL}/api/v1/product`, {
+  const res = await fetch(`${process.env.BACKEND_URL}/product`, {
     next: {
       revalidate: 10,
     }
