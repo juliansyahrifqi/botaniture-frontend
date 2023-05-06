@@ -7,7 +7,7 @@ import CardCategory from "./components/CardCategory";
 import CardBlog from "./components/CardBlog";
 import { Suspense } from "react";
 import { ProductCategoryType } from "./types/productCategoryType";
-import { ProductProps, ProductType } from "./types/productType";
+import { ProductType } from "./types/productType";
 
 const blogs = [
   { 
@@ -37,19 +37,31 @@ const blogs = [
 ]
 
 async function getServices() {
-  const res = await fetch(`${process.env.BACKEND_URL}/api/v1/services`);
+  const res = await fetch(`${process.env.BACKEND_URL}/api/v1/services`, {
+    next: {
+      revalidate: 10,
+    }
+  });
 
   return res.json();
 }
 
 async function getCategories() {
-  const res = await fetch(`${process.env.BACKEND_URL}/api/v1/product-category`);
+  const res = await fetch(`${process.env.BACKEND_URL}/api/v1/product-category`, {
+    next: {
+      revalidate: 10,
+    }
+  });
 
   return res.json();
 }
 
 async function getProducts() {
-  const res = await fetch(`${process.env.BACKEND_URL}/api/v1/product`);
+  const res = await fetch(`${process.env.BACKEND_URL}/api/v1/product`, {
+    next: {
+      revalidate: 10,
+    }
+  });
 
   return res.json();
 }
@@ -76,7 +88,7 @@ export default async function Home() {
                 productName={product.product_name}
                 productPrice={product.product_price} 
                 productDiscount={product.product_discount} 
-                productImage={product.product_image}
+                productImage={`${process.env.IMAGE_URL}/product/${product.product_image}`}
                 productSlug={product.product_slug}
               />
             ))}
@@ -92,7 +104,7 @@ export default async function Home() {
               {(categories?.data || []).map((category: ProductCategoryType) => (
                 <CardCategory 
                   key={category.procat_id} 
-                  image={category.procat_image} 
+                  image={`${process.env.IMAGE_URL}/product_category/${category.procat_image}`} 
                   name={category.procat_name} 
                   slug={category.procat_slug}
                 />

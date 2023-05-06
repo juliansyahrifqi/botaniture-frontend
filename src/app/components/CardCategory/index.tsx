@@ -34,8 +34,8 @@ export default function CardCategory(props: CardCategoryProps) {
 
             <text x="50%" y="40%" dominantBaseline="middle" textAnchor="middle" className="fill-white font-sansation font-bold text-2xl">{name}</text>
 
-            <text x="50%" y="70%" dominantBaseline="middle" textAnchor="middle" className="fill-white font-inter font-bold text-sm underline underline-offset-8">
-              <Link href={slug}>
+            <text x="50%" y="70%" dominantBaseline="middle" textAnchor="middle" className="fill-white font-inter font-bold text-sm underline underline-offset-8 tracking-wider">
+              <Link href={`product-category/${slug}`}>
                 Belanja Sekarang
               </Link>
             </text>

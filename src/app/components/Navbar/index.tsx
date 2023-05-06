@@ -64,9 +64,9 @@ export default function Navbar() {
               <path
                 d="M1 30L30 1M1 1L30 30"
                 stroke="black"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </button>
