@@ -33,17 +33,42 @@ const sansation = localFont({
   variable: '--font-sansation',
 })
 
-export default function RootLayout({
+async function getPaymentMethod() {
+  const res = await fetch(`${process.env.BACKEND_URL}/payment-method`, {
+    next: {
+      revalidate: 60
+    }
+  });
+
+  return res.json();
+}
+
+async function getContact() {
+  const res = await fetch(`${process.env.BACKEND_URL}/contact`, {
+    next: {
+      revalidate: 60
+    }
+  });
+
+  return res.json();
+}
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const paymentMethodData = getPaymentMethod();
+  const contactData = getContact();
+
+  const [ paymentMethod, contactList ] = await Promise.all([ paymentMethodData, contactData ]);
+
   return (
     <html lang="en">
       <body className={`${roboto.variable} ${sansation.variable} ${inter.variable} h-screen flex flex-col`}>
         <Navbar />
         {children}
-        <Footer />
+        <Footer paymentMethod={paymentMethod} contactList={contactList} />
       </body>
     </html>
   );

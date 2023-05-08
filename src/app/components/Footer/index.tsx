@@ -4,7 +4,7 @@ import PaymentMethod from "./PaymentMethod";
 import FooterLogo from "./FooterLogo";
 import FooterItem from "./FooterItem";
 
-export default function Footer() {
+export default  function Footer({ paymentMethod, contactList }: any) {
   return (
     <footer className="bg-footer w-full">
       <div className="grid grid-cols-4 justify-center p-12">
@@ -13,11 +13,11 @@ export default function Footer() {
         </FooterItem>
 
         <FooterItem title="Hubungi Kami">
-          <CallUs />
+          <CallUs contactList={contactList} />
         </FooterItem>
 
         <FooterItem title="Metode Pembayaran">
-          <PaymentMethod />
+          <PaymentMethod paymentMethodList={paymentMethod}/>
         </FooterItem>
 
         <FooterItem>
