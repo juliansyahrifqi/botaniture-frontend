@@ -8,6 +8,7 @@ import CardBlog from "./components/CardBlog";
 import { Suspense } from "react";
 import { ProductCategoryType } from "./types/productCategoryType";
 import { ProductType } from "./types/productType";
+import SwiperSlider from "./components/Swiper";
 
 const blogs = [
   { 
@@ -66,33 +67,34 @@ async function getProducts() {
   return res.json();
 }
 
+async function getPromo() {
+  const res = await fetch(`${process.env.BACKEND_URL}/promo/product`, {
+    next: {
+      revalidate: 60,
+    }
+  });
+
+  return res.json();
+}
+
 export default async function Home() {
   const serviceData = getServices();
   const categoryData = getCategories();
   const productData = getProducts();
+  const promoData = getPromo();
 
-  const [services, categories, products] = await Promise.all([serviceData, categoryData, productData]);
-
+  const [services, categories, products, promo] = await Promise.all([serviceData, categoryData, productData, promoData]);
+  
   return (
     <main className={`px-4 md:px-12 py-10`}>
-      <Hero />
+      
+      <Hero promo={promo} />
 
       <Service data={services.data} />
 
       <PageSection title="New Arrival" link="/belanja">
         <Suspense fallback={<div>Loading...</div>}>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {(products?.data || []).map((product: ProductType) => (
-              <CardProduct 
-                key={product.product_id} 
-                productName={product.product_name}
-                productPrice={product.product_price} 
-                productDiscount={product.product_discount} 
-                productImage={`${process.env.IMAGE_URL}/product/${product.product_image}`}
-                productSlug={product.product_slug}
-              />
-            ))}
-          </div>
+          <SwiperSlider products={products} />
         </Suspense>
       </PageSection>
 
