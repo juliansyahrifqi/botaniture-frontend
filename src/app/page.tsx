@@ -1,13 +1,11 @@
 import Hero from "./components/Hero";
 import Service from "./components/Service";
 import PageSection from "./components/PageSection";
-import CardProduct from "./components/CardProduct";
 import Quote from "./components/Quote";
 import CardCategory from "./components/CardCategory";
 import CardBlog from "./components/CardBlog";
 import { Suspense } from "react";
 import { ProductCategoryType } from "./types/productCategoryType";
-import { ProductType } from "./types/productType";
 import SwiperSlider from "./components/Swiper";
 
 const blogs = [
@@ -103,14 +101,14 @@ export default async function Home() {
       <PageSection title="Category" link="/category">
         <Suspense fallback={<div>Loading...</div>}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {(categories?.data || []).map((category: ProductCategoryType) => (
-                <CardCategory 
-                  key={category.procat_id} 
-                  image={`${process.env.IMAGE_URL}/product_category/${category.procat_image}`} 
-                  name={category.procat_name} 
-                  slug={category.procat_slug}
-                />
-              ))}
+            {(categories?.data || []).map((category: ProductCategoryType) => (
+              <CardCategory 
+                key={category.procat_id} 
+                image={`${process.env.IMAGE_URL}/product_category/${category.procat_image}`} 
+                name={category.procat_name} 
+                slug={category.procat_slug}
+              />
+            ))}
           </div>
         </Suspense>
       </PageSection>
