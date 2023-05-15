@@ -75,13 +75,24 @@ async function getPromo() {
   return res.json();
 }
 
+async function getQuote() {
+  const res = await fetch(`${process.env.BACKEND_URL}/quote`, {
+    next: {
+      revalidate: 60,
+    }
+  });
+
+  return res.json();
+}
+
 export default async function Home() {
   const serviceData = getServices();
   const categoryData = getCategories();
   const productData = getProducts();
   const promoData = getPromo();
+  const quoteData = getQuote();
 
-  const [services, categories, products, promo] = await Promise.all([serviceData, categoryData, productData, promoData]);
+  const [services, categories, products, promo, quote] = await Promise.all([serviceData, categoryData, productData, promoData, quoteData]);
   
   return (
     <main className={`px-4 md:px-12 py-10`}>
@@ -96,7 +107,7 @@ export default async function Home() {
         </Suspense>
       </PageSection>
 
-      <Quote />
+      <Quote quote={quote.data} />
 
       <PageSection title="Category" link="/category">
         <Suspense fallback={<div>Loading...</div>}>
