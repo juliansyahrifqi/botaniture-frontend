@@ -10,7 +10,13 @@ export default function CardProduct(props: ProductProps) {
 
   return (
     <div className="relative product-card bg-[#F8F8F8] shadow-md rounded-xl px-4 pt-16 pb-4 flex flex-col gap-3 keen-slider__slide">
-      <div className="absolute px-3 py-1 bg-hero font-roboto font-bold text-white top-3 rounded-lg text-xs">New</div>
+      <div className="absolute top-3 flex gap-2">
+        <div className="px-3 py-1 bg-hero font-roboto font-bold text-white rounded-lg text-xs">New</div>
+
+        {productDiscount > 0 && (
+          <div className="px-3 py-1 bg-[#FF3838] font-roboto font-bold text-white rounded-lg text-xs">{productDiscount}% OFF</div>
+        )}
+      </div>
 
       <div className="product-image bg-[url('/bg-product.png')] bg-no-repeat bg-center bg-[length:150px_150px]">
         <Image src={productImage} alt={productName} width={120} height={120} className="w-[120px] h-[180px] object-contain mx-auto"/>
