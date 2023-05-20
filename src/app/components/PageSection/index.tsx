@@ -13,9 +13,9 @@ export default function PageSection(props: PageSectionProps) {
   return (
     <section id="section" className='my-16'>
       <div className='section-header flex justify-between my-6'>
-        <h2 className='font-inter text-4xl font-bold text-hero-primary'>{title}</h2>
+        <h2 className='font-inter text-2xl md:text-4xl font-bold text-hero-primary'>{title}</h2>
 
-        <Link href={link} className='flex items-center gap-2 underline underline-offset-2 text-hero-primary font-inter font-medium hover:text-black'>
+        <Link href={link} className='flex items-center gap-2 underline underline-offset-2 text-hero-primary font-inter font-medium hover:text-black text-sm md:text-base'>
           Lihat Lainnya
           <BsArrowRight />
         </Link>

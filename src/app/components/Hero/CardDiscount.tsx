@@ -31,7 +31,7 @@ export default function CardDiscount(props: CardDiscountProps) {
           <p className="text-sm text-white font-semibold">{promoName}</p>
 
           <div className="flex items-center justify-between gap-2">
-            <p className="text-gold text-3xl font-bold font-sansation">{formatRupiah(discountValue)}</p> 
+            <p className="text-gold text-2xl md:text-3xl font-bold font-sansation">{formatRupiah(discountValue)}</p> 
             <span className="text-xs text-white font-semibold font-roboto"><s>{formatRupiah(data.product_price)}</s></span>
           </div>
         </div>

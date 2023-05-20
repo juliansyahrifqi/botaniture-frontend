@@ -16,7 +16,7 @@ export default function CardBlog(props: CardBlogProps) {
     <div className="flex flex-col gap-3 bg-[#F8F8F8] shadow-xl rounded-3xl">
       <div className="relative image">
         <div>
-          <Image src={image} alt={title} width={500} height={500} className="w-full rounded-tr-3xl rounded-tl-3xl max-h-60 object-cover" />
+          <Image src={image} alt={title} width={500} height={500} className="w-full rounded-tr-3xl rounded-tl-3xl max-h-48 md:max-h-60 object-cover" />
         </div>
         
         <svg width="435" height="78" viewBox="0 0 435 78" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute bottom-0 w-full" preserveAspectRatio="xMidYMid slice">
@@ -38,13 +38,13 @@ export default function CardBlog(props: CardBlogProps) {
           day: "numeric"
         })}</p>
 
-        <h4 className="font-bold font-roboto text-[#31462D] text-2xl">{title}</h4>
-        <p className="font-normal font-sansation text-hero-secondary text-md">{description}</p>
+        <h4 className="font-bold font-roboto text-[#31462D] text-xl md:text-2xl">{title}</h4>
+        <p className="font-normal font-sansation text-hero-secondary text-sm md:text-md">{description}</p>
       </div>
 
       <div className="mt-auto pb-4 px-4">
         <Link href={`/blog/${slug}`} className="mt-auto justify-end">
-          <button className="bg-primary rounded-2xl w-full py-4 font-roboto font-bold text-white">
+          <button className="bg-primary rounded-2xl w-full py-4 font-roboto font-bold text-white ">
             Baca Selengapnya
           </button>
         </Link>

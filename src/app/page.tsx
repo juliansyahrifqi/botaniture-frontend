@@ -125,7 +125,7 @@ export default async function Home() {
       </PageSection>
 
       <PageSection title="Blog" link="/blog">
-        <div className="grid grid-cols-2 xl:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
           {blogs.map((blog) => (
             <CardBlog 
               key={blog.id}

@@ -9,7 +9,7 @@ export default function CardProduct(props: ProductProps) {
   const price = productPrice - (productPrice * (productDiscount / 100));
 
   return (
-    <div className="relative product-card bg-[#F8F8F8] shadow-md rounded-xl px-4 pt-16 pb-4 flex flex-col gap-3 keen-slider__slide">
+    <div className="relative product-card bg-[#F8F8F8] shadow-md rounded-3xl px-4 pt-16 pb-4 flex flex-col gap-3 keen-slider__slide">
       <div className="absolute top-3 flex gap-2">
         <div className="px-3 py-1 bg-hero font-roboto font-bold text-white rounded-lg text-xs">New</div>
 

@@ -26,14 +26,14 @@ export default async function ProductDetail({ params }: { params: { slug: string
         <Image src={`${process.env.IMAGE_URL}/product/${product.data.product_image}`} alt={product.data.product_name} width={250} height={250} className="w-1/2 max-h-96 object-contain mx-auto" />
 
         <div className='product-information flex flex-col gap-5 py-4'>
-          <h1 className='text-3xl font-roboto font-bold text-hero-primary'>{product.data.product_name}</h1>
+          <h1 className='text-2xl md:text-3xl font-roboto font-bold text-hero-primary'>{product.data.product_name}</h1>
 
           <div className="flex items-center gap-3 bg-gray-100 p-4">
             {product.data.product_discount > 0 && (
               <p className="text-[#31462D] text-sm font-roboto font-bold"><s>{formatRupiah(product.data.product_price)}</s></p>
             )}
 
-            <h4 className={`font-sansation font-bold ${product.data.product_discount > 0 ? 'text-[#FF3838]': 'text-[#31462D]'} text-3xl`}>
+            <h4 className={`font-sansation font-bold ${product.data.product_discount > 0 ? 'text-[#FF3838]': 'text-[#31462D]'} text-2xl md:text-3xl`}>
               {formatRupiah(price)}
             </h4>
 
