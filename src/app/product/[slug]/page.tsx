@@ -23,7 +23,17 @@ export default async function ProductDetail({ params }: { params: { slug: string
   return (
     <main className={`px-4 md:px-12 py-10`}>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-        <Image src={`${process.env.IMAGE_URL}/product/${product.data.product_image}`} alt={product.data.product_name} width={250} height={250} className="w-1/2 max-h-96 object-contain mx-auto" />
+        <div className='flex flex-col'>
+          <Image src={`${process.env.IMAGE_URL}/product_gallery/${product.data.productGalleries[0].proga_image}`} alt={product.data.product_name} width={250} height={250} className="w-full max-h-96 object-contain mx-auto" />
+
+          <div className='flex gap-2 mt-2'>
+            {product.data.productGalleries.map((proga: any) => (
+              <Image key={proga.proga_id} src={`${process.env.IMAGE_URL}/product_gallery/${proga.proga_image}`} alt={product.data.product_name} width={250} height={250} className="w-full h-24 object-cover mx-auto" />
+            ))}
+          </div>
+        </div>
+
+        
 
         <div className='product-information flex flex-col gap-5 py-4'>
           <h1 className='text-2xl md:text-3xl font-roboto font-bold text-hero-primary'>{product.data.product_name}</h1>
