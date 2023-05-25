@@ -2,6 +2,7 @@ import Image from 'next/image';
 import React from 'react'
 import { formatRupiah } from '../../../../utils/formatRupiah';
 import { BsCartPlus } from 'react-icons/bs';
+import ImageGallery from '@/app/components/ImageGallery';
 
 async function getProductDetail(slug: string) {
   const res = await fetch(`${process.env.BACKEND_URL}/product/${slug}`, {
@@ -23,15 +24,7 @@ export default async function ProductDetail({ params }: { params: { slug: string
   return (
     <main className={`px-4 md:px-12 py-10`}>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-        <div className='flex flex-col'>
-          <Image src={`${process.env.IMAGE_URL}/product_gallery/${product.data.productGalleries[0].proga_image}`} alt={product.data.product_name} width={250} height={250} className="w-full max-h-96 object-contain mx-auto" />
-
-          <div className='flex gap-2 mt-2'>
-            {product.data.productGalleries.map((proga: any) => (
-              <Image key={proga.proga_id} src={`${process.env.IMAGE_URL}/product_gallery/${proga.proga_image}`} alt={product.data.product_name} width={250} height={250} className="w-full h-24 object-cover mx-auto" />
-            ))}
-          </div>
-        </div>
+        <ImageGallery data={product.data.productGalleries} />
 
         
 
