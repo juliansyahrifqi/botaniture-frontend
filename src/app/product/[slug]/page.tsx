@@ -3,6 +3,7 @@ import React from 'react'
 import { formatRupiah } from '../../../../utils/formatRupiah';
 import { BsCartPlus } from 'react-icons/bs';
 import ImageGallery from '@/app/components/ImageGallery';
+import InputQty from '@/app/components/Input/InputQty';
 
 async function getProductDetail(slug: string) {
   const res = await fetch(`${process.env.BACKEND_URL}/product/${slug}`, {
@@ -25,8 +26,6 @@ export default async function ProductDetail({ params }: { params: { slug: string
     <main className={`px-4 md:px-12 py-10`}>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
         <ImageGallery data={product.data.productGalleries} />
-
-        
 
         <div className='product-information flex flex-col gap-5 py-4'>
           <h1 className='text-2xl md:text-3xl font-roboto font-bold text-hero-primary'>{product.data.product_name}</h1>
@@ -58,7 +57,7 @@ export default async function ProductDetail({ params }: { params: { slug: string
           <div className='flex flex-col'>
             <p className='font-medium text-lg text-hero-secondary font-roboto'>Jumlah</p>
 
-            <input type="number" />
+            <InputQty maxQty={product.data.product_stock} />
           </div>
 
           <button className="flex gap-4 bg-primary rounded-lg p-4 font-roboto font-medium text-white mt-auto self-start">

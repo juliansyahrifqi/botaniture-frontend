@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ButtonSidebar from "../Button/ButtonSidebar";
 import Image from "next/image";
 import Logo from "/public/Logo.png";
 import { BsBookmark, BsCart2 } from "react-icons/bs";
 import { AiOutlineUser } from "react-icons/ai";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 
 const menus = [
   { name: "Wishlist", icon: BsBookmark, href: "/wishlist" },
@@ -22,6 +22,11 @@ export default function Navbar() {
     setSidebarOpen(!sidebarOpen);
   };
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    setSidebarOpen(false);
+  }, [pathname, searchParams]);
 
   return (
     <>
@@ -47,7 +52,6 @@ export default function Navbar() {
         </div>
       </nav>
 
-      
       <nav className={`z-50 fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm pt-12 pb-4 px-10 bg-sidebar border-r overflow-y-auto ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-all ease-in-out duration-500`}>
         <div className="flex items-center mb-8">
           <a className="mr-auto text-3xl font-bold leading-none" href="/">
